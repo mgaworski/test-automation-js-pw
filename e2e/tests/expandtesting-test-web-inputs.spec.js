@@ -13,7 +13,7 @@ test.describe('Expand testing #1 - test web inputs', () => {
         await webInputsPage.clearInputs();
     });
 
-    test('Verify Input:Number accepts a number.', async ({page}) => {
+    test('Verify Input:Number accepts a number.', async ({ page }) => {
         const number = 124;
         const webInputsPage = new WebInputsPage(page, cfg);
         await webInputsPage.fillNumber(number)
@@ -21,7 +21,7 @@ test.describe('Expand testing #1 - test web inputs', () => {
         await expect(webInputsPage.numberOutputField).toHaveText(number.toString());
     });
 
-    test('Verify Input:Text accepts text.', async ({page}) => {
+    test('Verify Input:Text accepts text.', async ({ page }) => {
         const text = "Some text";
         const webInputsPage = new WebInputsPage(page, cfg);
         await webInputsPage.fillText(text)
@@ -29,7 +29,7 @@ test.describe('Expand testing #1 - test web inputs', () => {
         await expect(webInputsPage.textOutputField).toHaveText(text);
     });
 
-    test('Verify Input:Password accepts password but does not displays it.', async ({page}) => {
+    test('Verify Input:Password accepts password but does not displays it.', async ({ page }) => {
         const password = "K%S&D%UDGjsgdautda87dg-asdakdsg";
         const webInputsPage = new WebInputsPage(page, cfg);
         await webInputsPage.fillPassword(password)
@@ -38,7 +38,7 @@ test.describe('Expand testing #1 - test web inputs', () => {
         await expect(webInputsPage.passwordInputField).not.toHaveText(password);
     });
 
-    test('Verify Input:Date accepts current date', async ({page}) => {
+    test('Verify Input:Date accepts current date', async ({ page }) => {
         let currentDate = getDateYYYYMMDD();
         const webInputsPage = new WebInputsPage(page, cfg);
         await webInputsPage.fillDate(currentDate)
@@ -46,7 +46,7 @@ test.describe('Expand testing #1 - test web inputs', () => {
         await expect(webInputsPage.dateOutputField).toHaveText(currentDate);
     });
 
-    test('Verify Input:Date accepts past date', async ({page}) => {
+    test('Verify Input:Date accepts past date', async ({ page }) => {
         let pastDate = getDateYYYYMMDD(-10);
         const webInputsPage = new WebInputsPage(page, cfg);
         await webInputsPage.fillDate(pastDate)
@@ -54,7 +54,7 @@ test.describe('Expand testing #1 - test web inputs', () => {
         await expect(webInputsPage.dateOutputField).toHaveText(pastDate);
     });
 
-        test('Verify Input:Date accepts future date', async ({page}) => {
+    test('Verify Input:Date accepts future date', async ({ page }) => {
         let futureDate = getDateYYYYMMDD(10);
         const webInputsPage = new WebInputsPage(page, cfg);
         await webInputsPage.fillDate(futureDate)
