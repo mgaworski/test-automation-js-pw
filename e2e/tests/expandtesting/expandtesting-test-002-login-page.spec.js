@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '../pages/login.page.js';
-import { SecureAreaPage } from '../pages/secure-area.page.js';
+import { LoginPage } from '../../pages/expandtesting/login.page.js';
+import { SecureAreaPage } from '../../pages/expandtesting/secure-area.page.js';
 
-const cfg = require('../utilities/loadEnvHelper');
-const { loadData } = require('../utilities/loadDataHelper');
+const cfg = require('../../utilities/loadEnvHelper.js');
+const { loadData } = require('../../utilities/loadDataHelper.js');
 const users = loadData('users');
 
 test.describe('Expand testing #2 - test login page', () => {

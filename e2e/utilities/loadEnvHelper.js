@@ -16,3 +16,5 @@ function loadEnvironment() {
 }
 
 module.exports = loadEnvironment();
+
+// module.exports = { loadEnvironment };
