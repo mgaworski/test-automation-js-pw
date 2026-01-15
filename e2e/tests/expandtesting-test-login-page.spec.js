@@ -1,12 +1,17 @@
 import { test, expect } from '@playwright/test';
-const cfg = require('../utilities/loadEnv');
-const { loadData } = require('../utilities/loadData');
 import { LoginPage } from '../pages/login.page.js';
 import { SecureAreaPage } from '../pages/secure-area.page.js';
 
+const cfg = require('../utilities/loadEnvHelper');
+const { loadData } = require('../utilities/loadDataHelper');
 const users = loadData('users');
 
 test.describe('Expand testing #2 - test login page', () => {
+
+    test.beforeEach(async ({ page }) => {
+        const loginPage = new LoginPage(page, cfg);
+        await loginPage.open();
+    });
 
     /*
     Test Case 1: Successful Login
@@ -20,16 +25,15 @@ test.describe('Expand testing #2 - test login page', () => {
         Confirm the success message "You logged into a secure area!" is visible.
         Verify that a Logout button is displayed.
     */
-   
-        test('Test Case 1: Successful Login', async ({page}) => {
-            const loginPage = new LoginPage(page, cfg);
-            await loginPage.open();
-            await loginPage.login(users.validUser.name, users.validUser.password);
-            const secureAreaPage = new SecureAreaPage(page, cfg);
-            await expect(secureAreaPage.confirmationTextArea).toBeVisible();
-            await expect(secureAreaPage.page).toHaveURL(secureAreaPage.url);
-            await expect(secureAreaPage.logoutButton).toBeVisible();
-        });
+
+    test('Test Case 1: Successful Login', async ({ page }) => {
+        const loginPage = new LoginPage(page, cfg);
+        await loginPage.login(users.validUser.name, users.validUser.password);
+        const secureAreaPage = new SecureAreaPage(page, cfg);
+        await expect(secureAreaPage.page).toHaveURL(secureAreaPage.url);
+        await expect(secureAreaPage.confirmationTextArea).toBeVisible();
+        await expect(secureAreaPage.logoutButton).toBeVisible();
+    });
 
     /*
     Test Case 2: Invalid Username
@@ -43,13 +47,12 @@ test.describe('Expand testing #2 - test login page', () => {
         Ensure the user remains on the login page.
     */
 
-        test('Test Case 2: Invalid Username', async ({page}) => {
-            const loginPage = new LoginPage(page, cfg);
-            await loginPage.open();
-            await loginPage.login(users.invalidNameUser.name, users.invalidNameUser.password);
-            await expect(loginPage.invalidUsernameTextArea).toBeVisible();
-            await expect(loginPage.page).toHaveURL(loginPage.url);
-        });
+    test('Test Case 2: Invalid Username', async ({ page }) => {
+        const loginPage = new LoginPage(page, cfg);
+        await loginPage.login(users.invalidNameUser.name, users.invalidNameUser.password);
+        await expect(loginPage.page).toHaveURL(loginPage.url);
+        await expect(loginPage.invalidUsernameTextArea).toBeVisible();
+    });
 
     /*
     Test Case 3: Invalid Password
@@ -63,12 +66,11 @@ test.describe('Expand testing #2 - test login page', () => {
         Ensure the user remains on the login page.
     */
 
-        test('Test Case 3: Invalid Password', async ({page}) => {
-            const loginPage = new LoginPage(page, cfg);
-            await loginPage.open();
-            await loginPage.login(users.invalidPasswordUser.name, users.invalidPasswordUser.password);
-            await expect(loginPage.invalidPasswordTextArea).toBeVisible();
-            await expect(loginPage.page).toHaveURL(loginPage.url);
-        });
+    test('Test Case 3: Invalid Password', async ({ page }) => {
+        const loginPage = new LoginPage(page, cfg);
+        await loginPage.login(users.invalidPasswordUser.name, users.invalidPasswordUser.password);
+        await expect(loginPage.page).toHaveURL(loginPage.url);
+        await expect(loginPage.invalidPasswordTextArea).toBeVisible();
+    });
 
 });

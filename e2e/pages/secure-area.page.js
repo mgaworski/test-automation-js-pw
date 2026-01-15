@@ -8,13 +8,9 @@ export class SecureAreaPage {
         this.loggedText = "You logged into a secure area!";
     }
 
-    get logoutButton() {
-        return this.page.locator(".button").getByText("Logout");
-    }
-
-    get confirmationTextArea() {
-        return this.page.getByText(this.loggedText);
-    }
+    // locators
+    get logoutButton() { return this.page.locator(".button").getByText("Logout"); ;}
+    get confirmationTextArea() { return this.page.getByText(this.loggedText); };
 
     async open() {
         await this.page.goto(this.url)

@@ -10,25 +10,11 @@ export class LoginPage {
     }
 
     // locators
-    get userNameInput() {
-        return this.page.locator("#username");
-    }
-
-    get passwordInput() {
-        return this.page.locator("#password");
-    }
-
-    get loginButton() {
-        return this.page.getByRole("button").getByText("Login");
-    }
-
-    get invalidPasswordTextArea() {
-        return this.page.getByText(this.invalidPass);
-    }
-
-    get invalidUsernameTextArea() {
-        return this.page.getByText(this.invalidUser);
-    }
+    get userNameInput() { return this.page.locator("#username"); }
+    get passwordInput() { return this.page.locator("#password"); }
+    get loginButton() { return this.page.getByRole("button").getByText("Login"); }
+    get invalidPasswordTextArea() { return this.page.getByText(this.invalidPass); }
+    get invalidUsernameTextArea() { return this.page.getByText(this.invalidUser); }
 
     // methods
     async open() {
