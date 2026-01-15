@@ -1,12 +1,14 @@
-export class LoginPage {
+import { BasePage } from "./base.page";
+
+export class LoginPage extends BasePage {
 
     constructor(page, cfg = {}) {
-        this.page = page;
-        this.cfg = cfg;
+        super(page, cfg);
         this.url = `${this.cfg.appURL}login`;
         // const
         this.invalidPass = "Your password is invalid!";
         this.invalidUser = "Your username is invalid!";
+        this.successfulRegistration = "Successfully registered, you can log in now."
     }
 
     // locators
@@ -15,12 +17,9 @@ export class LoginPage {
     get loginButton() { return this.page.getByRole("button").getByText("Login"); }
     get invalidPasswordTextArea() { return this.page.getByText(this.invalidPass); }
     get invalidUsernameTextArea() { return this.page.getByText(this.invalidUser); }
+    get successfulRegistrationTextArea() { return this.page.getByText(this.successfulRegistration); }
 
     // methods
-    async open() {
-        await this.page.goto(this.url)
-    }
-
     async login(username, password) {
         await this.userNameInput.click(); // needed for non chromium browsers as otherwise we do not get focus
         await this.userNameInput.fill(username);

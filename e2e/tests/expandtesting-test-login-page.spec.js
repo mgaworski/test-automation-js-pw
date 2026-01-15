@@ -26,7 +26,7 @@ test.describe('Expand testing #2 - test login page', () => {
         Verify that a Logout button is displayed.
     */
 
-    test('Test Case 1: Successful Login', async ({ page }) => {
+    test('Verify successful login with correct credentials', async ({ page }) => {
         const loginPage = new LoginPage(page, cfg);
         await loginPage.login(users.validUser.name, users.validUser.password);
         const secureAreaPage = new SecureAreaPage(page, cfg);
@@ -47,7 +47,7 @@ test.describe('Expand testing #2 - test login page', () => {
         Ensure the user remains on the login page.
     */
 
-    test('Test Case 2: Invalid Username', async ({ page }) => {
+    test('Verify login with invalid username fails', async ({ page }) => {
         const loginPage = new LoginPage(page, cfg);
         await loginPage.login(users.invalidNameUser.name, users.invalidNameUser.password);
         await expect(loginPage.page).toHaveURL(loginPage.url);
@@ -66,7 +66,7 @@ test.describe('Expand testing #2 - test login page', () => {
         Ensure the user remains on the login page.
     */
 
-    test('Test Case 3: Invalid Password', async ({ page }) => {
+    test('Verify login with invalid password fails', async ({ page }) => {
         const loginPage = new LoginPage(page, cfg);
         await loginPage.login(users.invalidPasswordUser.name, users.invalidPasswordUser.password);
         await expect(loginPage.page).toHaveURL(loginPage.url);

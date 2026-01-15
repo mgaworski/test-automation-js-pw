@@ -10,5 +10,13 @@
   "invalidPasswordUser": {
     "name": "practice",
     "password": "SayFriendAndEnter"
+  },
+  "registerUser": {
+    "name": "john",
+    "password": "SayMyNameSayMyName!"
+  },
+  "shortPasswordUser": {
+    "name": "john",
+    "password": "abc"
   }
 }

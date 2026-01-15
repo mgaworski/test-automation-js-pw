@@ -1,8 +1,9 @@
-export class WebInputsPage {
+import { BasePage } from "./base.page";
+
+export class WebInputsPage extends BasePage{
 
     constructor(page, cfg = {}) {
-        this.page = page;
-        this.cfg = cfg;
+        super(page, cfg);
         this.url = `${this.cfg.appURL}inputs`;
         //const
         this.clearInputsText = "Clear Inputs"
@@ -24,10 +25,6 @@ export class WebInputsPage {
     get dateOutputField() { return this.page.locator('#output-date'); };
 
     // methods
-    async open() {
-        await this.page.goto(this.url)
-    }
-
     async clearInputs() {
         await this.clearInputsButton.click();
     }

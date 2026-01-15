@@ -10,7 +10,8 @@
 - ```npx playwright test --grep-invert @fast``` - skip the tests with a certain tag.
 - ```npx playwright test --grep --% "@fast^|@slow"``` - run tests containing either tag (logical OR operator).
 - ```npx playwright test --grep "(?=.*@fast)(?=.*@slow)"``` - run tests containing both tags (logical AND operator).
-- ```npx playwright test tests/todo-page.spec.ts``` run a single test file
+- ```npx playwright test tests/todo-page.spec.ts``` run a single test file.
+- ```npx playwright test -–headed``` run with a browser visible.
 
 Important files:
   - ```./tests/*.spec.js``` - End-to-end test

@@ -1,8 +1,9 @@
-export class SecureAreaPage {
+import { BasePage } from "./base.page";
+
+export class SecureAreaPage extends BasePage {
 
     constructor(page, cfg = {}) {
-        this.page = page;
-        this.cfg = cfg;
+        super(page, cfg);
         this.url = `${this.cfg.appURL}secure`;
         // const
         this.loggedText = "You logged into a secure area!";
@@ -11,9 +12,5 @@ export class SecureAreaPage {
     // locators
     get logoutButton() { return this.page.locator(".button").getByText("Logout"); ;}
     get confirmationTextArea() { return this.page.getByText(this.loggedText); };
-
-    async open() {
-        await this.page.goto(this.url)
-    }
 
 }
