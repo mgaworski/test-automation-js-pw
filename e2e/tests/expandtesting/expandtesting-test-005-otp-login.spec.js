@@ -14,7 +14,7 @@ test.describe('Expand testing #5 - test OTP login', () => {
         await otpLoginPage.open();
     });
 
-    test.only("Verify login with proper OTP.", async ({ page }) => {
+    test("Verify login with proper OTP.", async ({ page }) => {
         const otpLoginPage = new OTPLoginPage(page, cfg);
         await otpLoginPage.getOTP(otp.validOTP.mail);
         const otpVerificationPage = new OTPVerificationPage(page, cfg);
@@ -26,7 +26,7 @@ test.describe('Expand testing #5 - test OTP login', () => {
         await expect(secureAreaPage.logoutButton).toBeVisible();
     });
 
-    test.only("Verify no login with incorrect OTP.", async ({ page }) => {
+    test("Verify no login with incorrect OTP.", async ({ page }) => {
         const otpLoginPage = new OTPLoginPage(page, cfg);
         await otpLoginPage.getOTP(otp.validOTP.mail);
         const otpVerificationPage = new OTPVerificationPage(page, cfg);
@@ -35,7 +35,7 @@ test.describe('Expand testing #5 - test OTP login', () => {
         await expect(otpVerificationPage.incorrectOTPTextArea).toBeVisible();
     });
 
-    test.only("Verify misformatted mail error handling.", async ({ page }) => {
+    test("Verify misformatted mail error handling.", async ({ page }) => {
         const otpLoginPage = new OTPLoginPage(page, cfg);
         await otpLoginPage.getOTP("not_a_valid_mail");
         await expect(otpLoginPage.invalidMailTextArea).toBeVisible();
