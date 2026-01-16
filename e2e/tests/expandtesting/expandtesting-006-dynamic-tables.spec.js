@@ -3,7 +3,7 @@ import { DynamicTablePage } from '../../pages/expandtesting/dynamic-table.page';
 
 const cfg = require('../../utilities/loadEnvHelper');
 
-test.describe("", () => {
+test.describe("Expand testing #6 - test table with dynamic row and column order", () => {
 
     test("Verify chrome CPU value in table matches CPU Value in label", async ({ page }) => {
         const dynamicTablePage = new DynamicTablePage(page, cfg);

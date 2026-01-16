@@ -4,7 +4,7 @@ import { OTPVerificationPage } from '../../pages/expandtesting/otp-verification.
 import { SecureAreaPage } from '../../pages/expandtesting/secure-area.page.js';
 
 const cfg = require('../../utilities/loadEnvHelper.js');
-const { loadData } = require('../../utilities/loadDataHelper');
+const { loadData } = require('../../utilities/loadDataHelper.js');
 const otp = loadData('otp');
 
 test.describe('Expand testing #5 - test OTP login', () => {
