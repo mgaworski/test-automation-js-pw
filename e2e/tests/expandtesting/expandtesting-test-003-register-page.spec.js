@@ -7,7 +7,7 @@ const { loadData } = require('../../utilities/loadDataHelper');
 const users = loadData('users');
 
 
-test.describe('Expand testing #3 - test register page', () => {
+test.describe('Expand testing #3 - test register', () => {
 
     test.beforeEach(async ({ page }) => {
         const registerPage = new RegisterPage(page, cfg);

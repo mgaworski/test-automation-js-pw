@@ -6,7 +6,7 @@ const cfg = require('../../utilities/loadEnvHelper.js');
 const { loadData } = require('../../utilities/loadDataHelper.js');
 const users = loadData('users');
 
-test.describe('Expand testing #2 - test login page', () => {
+test.describe('Expand testing #2 - test login', () => {
 
     test.beforeEach(async ({ page }) => {
         const loginPage = new LoginPage(page, cfg);
