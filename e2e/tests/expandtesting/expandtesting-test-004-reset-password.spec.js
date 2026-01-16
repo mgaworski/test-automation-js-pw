@@ -11,7 +11,7 @@ test.describe('Expand testing #4 - test password reset', () => {
         await forgotPasswordPage.open();
     });
 
-    test.only("Verify password recovery mail is sent.", async ({ page }) => {
+    test("Verify password recovery mail is sent.", async ({ page }) => {
         const timestamp = Date.now();
         const mailbox = `et_Mail_${timestamp}`;
         const mail = `${mailbox}@mailinator.com`;
@@ -24,8 +24,11 @@ test.describe('Expand testing #4 - test password reset', () => {
         await expect(forgotPasswordPage.validMailTextArea).toBeVisible();
     });
 
-    test.skip("Verify error is displayed when incorrect mail is used.", async ({ page }) => {
-
+    test("Verify error is displayed when incorrect mail is used.", async ({ page }) => {
+        const mail = `not_a_mail`;
+        const forgotPasswordPage = new ForgotPasswordPage(page, cfg);
+        await forgotPasswordPage.retrieve(mail);
+        await expect(forgotPasswordPage.invalidMailTextArea).toBeVisible();
     });
 
 });
