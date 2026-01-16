@@ -5,7 +5,7 @@ const cfg = require('../../utilities/loadEnvHelper');
 
 test.describe("", () => {
 
-    test.only("Verify chrome CPU value in table matches CPU Value in label", async ({ page }) => {
+    test("Verify chrome CPU value in table matches CPU Value in label", async ({ page }) => {
         const dynamicTablePage = new DynamicTablePage(page, cfg);
         await dynamicTablePage.open();
         await expect(dynamicTablePage.chromeCPULabel).toBeVisible();
