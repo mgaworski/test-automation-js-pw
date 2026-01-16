@@ -8,16 +8,16 @@ export class LoginPage extends BasePage {
         // const
         this.invalidPass = "Your password is invalid!";
         this.invalidUser = "Your username is invalid!";
-        this.successfulRegistration = "Successfully registered, you can log in now."
+        this.successfulRegistration = "Successfully registered, you can log in now.";
     }
 
     // locators
-    get userNameInput() { return this.page.locator("#username"); }
-    get passwordInput() { return this.page.locator("#password"); }
-    get loginButton() { return this.page.getByRole("button").getByText("Login"); }
-    get invalidPasswordTextArea() { return this.page.getByText(this.invalidPass); }
-    get invalidUsernameTextArea() { return this.page.getByText(this.invalidUser); }
-    get successfulRegistrationTextArea() { return this.page.getByText(this.successfulRegistration); }
+    get userNameInput() { return this.page.locator("#username"); };
+    get passwordInput() { return this.page.locator("#password"); };
+    get loginButton() { return this.page.getByRole("button").getByText("Login"); };
+    get invalidPasswordTextArea() { return this.page.getByText(this.invalidPass); };
+    get invalidUsernameTextArea() { return this.page.getByText(this.invalidUser); };
+    get successfulRegistrationTextArea() { return this.page.getByText(this.successfulRegistration); };
 
     // methods
     async login(username, password) {
