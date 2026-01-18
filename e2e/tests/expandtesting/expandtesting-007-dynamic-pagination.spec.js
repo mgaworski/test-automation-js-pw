@@ -4,6 +4,8 @@ import { DynamicPaginationTablePage } from '../../pages/expandtesting/dynamic-pa
 const cfg = require('../../utilities/loadEnvHelper');
 const { loadData } = require('../../utilities/loadDataHelper');
 
+const students = loadData('students');
+
 test.describe("", () => {
 
     test.beforeEach(async ({ page }) => {
@@ -27,15 +29,27 @@ test.describe("", () => {
     });
 
     test("Verify that next page can be selected", async ({ page }) => {
-
+        const dynamicPaginationTable = new DynamicPaginationTablePage(page, cfg);
+        await expect(dynamicPaginationTable.currentPageButton).toHaveText("1");
+        await dynamicPaginationTable.nextPageButton.click();
+        await expect(dynamicPaginationTable.currentPageButton).toHaveText("2");
     });
 
     test("Verify that previous page can be selected", async ({ page }) => {
+        const dynamicPaginationTable = new DynamicPaginationTablePage(page, cfg);
+        await dynamicPaginationTable.goToPage(3);
+        await expect(dynamicPaginationTable.currentPageButton).toHaveText("3");
+        await dynamicPaginationTable.previousPageButton.click();
+        await expect(dynamicPaginationTable.currentPageButton).toHaveText("2");
 
     });
 
     test("Verify that page can be picked by clicking on a given number", async ({ page }) => {
-
+        const dynamicPaginationTable = new DynamicPaginationTablePage(page, cfg);
+        await dynamicPaginationTable.goToPage(2);
+        await expect(dynamicPaginationTable.currentPageButton).toHaveText("2");
+        const names = (await dynamicPaginationTable.studentNames.allTextContents()).map(t => t.trim());
+        expect(names).toEqual(students["page2"]);
     });
 
     test("Verify that search filters values properly", async ({ page }) => {
