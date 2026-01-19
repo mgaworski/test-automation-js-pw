@@ -9,8 +9,8 @@ export class MyBrowserInformationPage extends BasePage {
     }
 
     // locators
-    get showBrowserInformationButton() { return this.page.locator('#browser-taggle').getByText("Show Browser Information"); };
-    get hideBrowserInformationButton() { return this.page.locator('#browser-taggle').getByText("Hide Browser Information"); };
+    get showBrowserInformationButton() { return this.page.locator('#browser-toggle').getByText("Show Browser Information"); };
+    get hideBrowserInformationButton() { return this.page.locator('#browser-toggle').getByText("Hide Browser Information"); };
     get browserInfoTable() { return this.page.locator("#browser-info"); };
     
     // methods
@@ -18,7 +18,7 @@ export class MyBrowserInformationPage extends BasePage {
         await this.showBrowserInformationButton.click();
     }
 
-    async hideBrowserInformationButtonBrowserInfo() {
+    async hideBrowserInfo() {
         await this.hideBrowserInformationButton.click();
     }
 
