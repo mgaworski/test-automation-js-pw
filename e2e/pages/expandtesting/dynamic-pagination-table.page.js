@@ -6,6 +6,7 @@ export class DynamicPaginationTablePage extends BasePage {
         super(page, cfg);
         this.url = `${this.cfg.appURL}dynamic-pagination-table`;
         // const
+        this.noStudentsFound = "No matching records found";
     }
 
     // locators
@@ -16,9 +17,11 @@ export class DynamicPaginationTablePage extends BasePage {
     get nextPageButton() { return this.page.locator("#example_next"); };
     get currentPageButton() { return this.page.locator('a[aria-current="page"]'); };
     get studentNames() { return this.page.locator('#example tbody tr td:first-child') };
+    get firstStudentName() { return this.page.locator('#example tbody tr:first-child td:first-child') }
 
     //dynamic locators
     pageButton(n) { return this.page.locator('#example_paginate').getByRole('link', { name: String(n), exact: true }); };
+    column(n) { return this.page.getByText(n); };
     
     // methods
     async setTableEntrySize(c) {
@@ -26,7 +29,9 @@ export class DynamicPaginationTablePage extends BasePage {
     };
 
     async search(term) {
-        await this.search.pressSequentially(term);
+        await this.searchInput.click();
+        await this.searchInput.pressSequentially(term);
+        // await this.searchInput.press('Enter');
     };
 
     async next_page() {
