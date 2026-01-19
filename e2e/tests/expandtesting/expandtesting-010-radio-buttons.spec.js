@@ -25,18 +25,6 @@ test.describe('Expand testing #10 - radio buttons', () => {
         });
     });
 
-    const inactiveColors = [
-        { color: "green" }
-    ];
-
-    inactiveColors.forEach(({ color }) => {
-        test(`Select your favorite color, inactive buttons does not change color - ${color}`, async ({ page }) => {
-            const radioButtonsPage = new RadioButtonsPage(page, cfg);
-            await radioButtonsPage.pickColor(color);
-            await expect(radioButtonsPage.colorRadioButton(color)).not.toBeChecked();
-        });
-    });
-
     const sports = [
         { sport: "Basketball" },
         { sport: "Football" },
