@@ -10,8 +10,7 @@ export class DynamicTablePage extends BasePage {
 
     // locators
     get chromeCPULabel() { return this.page.locator('#chrome-cpu'); };
-    get chromeCPUTable() { return this.page.locator('//table//tr[th[contains(., "CPU")]]/ancestor::table//tr[td[1][contains(., "Chrome")]]/td[count(//th[contains(., "CPU")]/preceding-sibling::th)+1]');
-    };
+    get chromeCPUTable() { return this.page.locator('//table//tr[th[contains(., "CPU")]]/ancestor::table//tr[td[1][contains(., "Chrome")]]/td[count(//th[contains(., "CPU")]/preceding-sibling::th)+1]');};
     
     // methods
 
