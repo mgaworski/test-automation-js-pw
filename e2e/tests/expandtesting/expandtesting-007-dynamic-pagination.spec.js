@@ -6,7 +6,7 @@ const { loadData } = require('../../utilities/loadDataHelper');
 
 const students = loadData('students');
 
-test.describe("", () => {
+test.describe("Expand testing #7 - test pagination, sorting and searching in table", () => {
 
     test.beforeEach(async ({ page }) => {
         const dynamicPaginationTable = new DynamicPaginationTablePage(page, cfg);
