@@ -10,19 +10,19 @@ test.describe("Expand testing #12 - drag and drop circles", () => {
             await dragAndDropCirclesPage.open();
         });
 
-    test.only("Verify Red", async ({ page }) => {
+    test("Verify Red", async ({ page }) => {
         const dragAndDropCirclesPage = new DragAndDropCirclesPage(page, cfg);
         await dragAndDropCirclesPage.dragRed();
         await expect(dragAndDropCirclesPage.colorStripe(1)).toHaveClass("red");
     });
 
-    test.only("Verify Green", async ({ page }) => {
+    test("Verify Green", async ({ page }) => {
         const dragAndDropCirclesPage = new DragAndDropCirclesPage(page, cfg);
         await dragAndDropCirclesPage.dragGreen();
         await expect(dragAndDropCirclesPage.colorStripe(1)).toHaveClass("green");
     });
 
-    test.only("Verify Blue", async ({ page }) => {
+    test("Verify Blue", async ({ page }) => {
         const dragAndDropCirclesPage = new DragAndDropCirclesPage(page, cfg);
         await dragAndDropCirclesPage.dragBlue();
         await expect(dragAndDropCirclesPage.colorStripe(1)).toHaveClass("blue");
