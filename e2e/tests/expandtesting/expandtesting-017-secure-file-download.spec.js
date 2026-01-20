@@ -7,7 +7,7 @@ test.describe("Expand testing #17 - Secure file download", () => {
 
     const FILE_NAME = "cdct.jpg";
 
-    test.only("Verify secure file download", async ({ page }) => {
+    test("Verify secure file download", async ({ page }) => {
         const secureFileDownloaderPage = new SecureFileDownloaderPage(page, cfg);
         await secureFileDownloaderPage.open_auth(secureFileDownloaderPage.user, secureFileDownloaderPage.pass);
         await expect(secureFileDownloaderPage.downloadLink(FILE_NAME)).toBeVisible();
