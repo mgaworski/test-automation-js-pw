@@ -1,5 +1,7 @@
 name: All tests on Chromium
 on:
+  push:
+    branches: [ main, master ]
   workflow_dispatch:
 jobs:
   test:
