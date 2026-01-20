@@ -7,7 +7,7 @@ import os from 'os';
 
 const cfg = require('../../utilities/loadEnvHelper');
 
-test.describe("Expand testing #13 - Form validation", () => {
+test.describe("Expand testing #14 - File upload", () => {
 
     const FILE_NAME = "file_to_be_uploaded.txt";
     const FILE_PATH = `./e2e/resources/${FILE_NAME}`;

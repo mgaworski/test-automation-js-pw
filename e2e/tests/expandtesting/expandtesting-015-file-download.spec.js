@@ -7,11 +7,11 @@ import os from 'os';
 
 const cfg = require('../../utilities/loadEnvHelper');
 
-test.describe("Expand testing #13 - Form validation", () => {
+test.describe("Expand testing #15 - File download", () => {
 
     const FILE_NAME = "cdct.jpg";
 
-    test.only("Verify file download", async ({ page }) => {
+    test("Verify file download", async ({ page }) => {
         const fileDownloaderPage = new FileDownloaderPage(page, cfg);
         await fileDownloaderPage.open();
         await expect(fileDownloaderPage.downloadLink(FILE_NAME)).toBeVisible();
