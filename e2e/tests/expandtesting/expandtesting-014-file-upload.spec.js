@@ -12,13 +12,11 @@ test.describe("Expand testing #13 - Form validation", () => {
     const FILE_NAME = "file_to_be_uploaded.txt";
     const FILE_PATH = `./e2e/resources/${FILE_NAME}`;
 
-    // Contact name
-    test.only("Verify file upload", async ({ page }) => {
+    test("Verify file upload", async ({ page }) => {
         const fileUploaderPage = new FileUploaderPage(page, cfg);
         await fileUploaderPage.open();
         await expect(fileUploaderPage.fileInput).toBeAttached();
         await fileUploaderPage.upload(FILE_PATH);
-        // Assertions (these ids are commonly present on result view)
         await expect(fileUploaderPage.fileUploadedMsg).toBeVisible();
         await expect(fileUploaderPage.fileUploadedList).toContainText(FILE_NAME); 
     });
