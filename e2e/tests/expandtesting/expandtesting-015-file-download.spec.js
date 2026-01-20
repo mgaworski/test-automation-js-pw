@@ -1,10 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { FileDownloaderPage } from '../../pages/expandtesting/file-downloader.page';
 
-import fs from 'fs';
-import path from 'path';
-import os from 'os';
-
 const cfg = require('../../utilities/loadEnvHelper');
 
 test.describe("Expand testing #15 - File download", () => {
