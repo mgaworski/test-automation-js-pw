@@ -10,7 +10,7 @@ export class BasePage {
     }
 
     async open() {
-        await this.page.goto(this.url)
+        await this.page.goto(this.url, { waitUntil: 'domcontentloaded' });
     }
 
 }
