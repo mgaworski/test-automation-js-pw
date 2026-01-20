@@ -9,8 +9,8 @@ const students = loadData('students');
 test.describe("Expand testing #7 - test pagination, sorting and searching in table", () => {
 
     test.beforeEach(async ({ page }) => {
-        const dynamicPaginationTable = new DynamicPaginationTablePage(page, cfg);
-        await dynamicPaginationTable.open();
+        const dynamicPaginationTablePage = new DynamicPaginationTablePage(page, cfg);
+        await dynamicPaginationTablePage.open();
     });
 
     const sizes = [
@@ -22,50 +22,50 @@ test.describe("Expand testing #7 - test pagination, sorting and searching in tab
 
     sizes.forEach(({ entries, expected }) => {
         test(`Verify that row number is configurable - ${entries}`, async ({ page }) => {
-            const dynamicPaginationTable = new DynamicPaginationTablePage(page, cfg);
-            await dynamicPaginationTable.setTableEntrySize(entries);
-            await expect(dynamicPaginationTable.personRows).toHaveCount(expected);
+            const dynamicPaginationTablePage = new DynamicPaginationTablePage(page, cfg);
+            await dynamicPaginationTablePage.setTableEntrySize(entries);
+            await expect(dynamicPaginationTablePage.personRows).toHaveCount(expected);
         });
     });
 
     test("Verify that next page can be selected", async ({ page }) => {
-        const dynamicPaginationTable = new DynamicPaginationTablePage(page, cfg);
-        await expect(dynamicPaginationTable.currentPageButton).toHaveText("1");
-        await dynamicPaginationTable.nextPageButton.click();
-        await expect(dynamicPaginationTable.currentPageButton).toHaveText("2");
+        const dynamicPaginationTablePage = new DynamicPaginationTablePage(page, cfg);
+        await expect(dynamicPaginationTablePage.currentPageButton).toHaveText("1");
+        await dynamicPaginationTablePage.nextPageButton.click();
+        await expect(dynamicPaginationTablePage.currentPageButton).toHaveText("2");
     });
 
     test("Verify that previous page can be selected", async ({ page }) => {
-        const dynamicPaginationTable = new DynamicPaginationTablePage(page, cfg);
-        await dynamicPaginationTable.goToPage(3);
-        await expect(dynamicPaginationTable.currentPageButton).toHaveText("3");
-        await dynamicPaginationTable.previousPageButton.click();
-        await expect(dynamicPaginationTable.currentPageButton).toHaveText("2");
+        const dynamicPaginationTablePage = new DynamicPaginationTablePage(page, cfg);
+        await dynamicPaginationTablePage.goToPage(3);
+        await expect(dynamicPaginationTablePage.currentPageButton).toHaveText("3");
+        await dynamicPaginationTablePage.previousPageButton.click();
+        await expect(dynamicPaginationTablePage.currentPageButton).toHaveText("2");
 
     });
 
     test("Verify that page can be picked by clicking on a given number", async ({ page }) => {
-        const dynamicPaginationTable = new DynamicPaginationTablePage(page, cfg);
-        await dynamicPaginationTable.goToPage(2);
-        await expect(dynamicPaginationTable.currentPageButton).toHaveText("2");
-        const names = (await dynamicPaginationTable.studentNames.allTextContents()).map(t => t.trim());
+        const dynamicPaginationTablePage = new DynamicPaginationTablePage(page, cfg);
+        await dynamicPaginationTablePage.goToPage(2);
+        await expect(dynamicPaginationTablePage.currentPageButton).toHaveText("2");
+        const names = (await dynamicPaginationTablePage.studentNames.allTextContents()).map(t => t.trim());
         expect(names).toEqual(students["page2"]);
     });
 
     test("Verify that search filters values properly", async ({ page }) => {
-        const dynamicPaginationTable = new DynamicPaginationTablePage(page, cfg);
+        const dynamicPaginationTablePage = new DynamicPaginationTablePage(page, cfg);
         let student = "Bob Williams";
-        dynamicPaginationTable.search(student);
-        await expect(dynamicPaginationTable.firstStudentName).toHaveText(student);
-        await expect(dynamicPaginationTable.studentNames).toHaveCount(1);
+        dynamicPaginationTablePage.search(student);
+        await expect(dynamicPaginationTablePage.firstStudentName).toHaveText(student);
+        await expect(dynamicPaginationTablePage.studentNames).toHaveCount(1);
     });
 
     test("Verify that empty search result is shown properly", async ({ page }) => {
-        const dynamicPaginationTable = new DynamicPaginationTablePage(page, cfg);
+        const dynamicPaginationTablePage = new DynamicPaginationTablePage(page, cfg);
         let student = "Wade Wilson";
-        dynamicPaginationTable.search(student);
-        await expect(dynamicPaginationTable.firstStudentName).toHaveText(dynamicPaginationTable.noStudentsFound);
-        await expect(dynamicPaginationTable.studentNames).toHaveCount(1);
+        dynamicPaginationTablePage.search(student);
+        await expect(dynamicPaginationTablePage.firstStudentName).toHaveText(dynamicPaginationTablePage.noStudentsFound);
+        await expect(dynamicPaginationTablePage.studentNames).toHaveCount(1);
     });
 
     const columns = [
@@ -79,20 +79,20 @@ test.describe("Expand testing #7 - test pagination, sorting and searching in tab
 
     columns.forEach(({ column, first, last }) => {
         test(`Verify sorting by ${column} column`, async ({ page }) => {
-            const dynamicPaginationTable = new DynamicPaginationTablePage(page, cfg);
-            await dynamicPaginationTable.setTableEntrySize("All");
-            await expect(dynamicPaginationTable.personRows).toHaveCount(10);
-            await dynamicPaginationTable.column(column).click();
+            const dynamicPaginationTablePage = new DynamicPaginationTablePage(page, cfg);
+            await dynamicPaginationTablePage.setTableEntrySize("All");
+            await expect(dynamicPaginationTablePage.personRows).toHaveCount(10);
+            await dynamicPaginationTablePage.column(column).click();
             if (column == "Student Name") {
-                await expect(dynamicPaginationTable.firstStudentName).toHaveText(last);
+                await expect(dynamicPaginationTablePage.firstStudentName).toHaveText(last);
             } else {
-                await expect(dynamicPaginationTable.firstStudentName).toHaveText(first);
+                await expect(dynamicPaginationTablePage.firstStudentName).toHaveText(first);
             }
-            await dynamicPaginationTable.column(column).click();
+            await dynamicPaginationTablePage.column(column).click();
             if (column == "Student Name") {
-                await expect(dynamicPaginationTable.firstStudentName).toHaveText(first);
+                await expect(dynamicPaginationTablePage.firstStudentName).toHaveText(first);
             } else {
-                await expect(dynamicPaginationTable.firstStudentName).toHaveText(last);
+                await expect(dynamicPaginationTablePage.firstStudentName).toHaveText(last);
             }
         });
     });
