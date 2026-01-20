@@ -11,7 +11,12 @@ export class BasePage {
 
     async open() {
         await this.page.goto(this.url, { waitUntil: 'domcontentloaded' });
+    }
 
+    async open_auth(user, pass) {
+        const ahdr = 'Basic '+ btoa(user +':'+ pass);
+        this.page.setExtraHTTPHeaders({Authorization : ahdr});
+        this.open();
     }
 
 }
