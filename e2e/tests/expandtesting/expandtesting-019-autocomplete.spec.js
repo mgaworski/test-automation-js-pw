@@ -10,8 +10,30 @@ test.describe("Expand testing #19 - Autocomplete", () => {
         await autocompletePage.open();
         await expect(autocompletePage.countryInput).toBeVisible({ timeout: 15000 });
         await autocompletePage.type("Po");
-        // await expect(autocompletePage.countryOption("Poland")).toBeVisible();
-        // await expect(autocompletePage.countryOption("Portugal")).toBeVisible();
+        await expect(autocompletePage.countryOption("Poland")).toBeAttached();
+        await expect(autocompletePage.countryOption("Portugal")).toBeAttached();
+        await expect(autocompletePage.countryOptions).toHaveCount(2);
+        await autocompletePage.type("l");
+        await expect(autocompletePage.countryOption("Poland")).toBeAttached();
+        await expect(autocompletePage.countryOptions).toHaveCount(1);
+        await autocompletePage.countryInput.type("and");
+        await autocompletePage.submitButton.click();
+        await expect(autocompletePage.submitResultsText).toHaveText("You selected: Poland");
+    });
+
+    test("Verify autocomplete empty results.", async ({ page }) => {
+        const autocompletePage = new AutocompletePage(page, cfg);
+        await autocompletePage.open();
+        await expect(autocompletePage.countryInput).toBeVisible({ timeout: 15000 });
+        await autocompletePage.type("Po");
+        await expect(autocompletePage.countryOption("Poland")).toBeAttached();
+        await expect(autocompletePage.countryOption("Portugal")).toBeAttached();
+        await expect(autocompletePage.countryOptions).toHaveCount(2);
+        await autocompletePage.type("l");
+        await expect(autocompletePage.countryOption("Poland")).toBeAttached();
+        await expect(autocompletePage.countryOptions).toHaveCount(1);
+        await autocompletePage.type("y");
+        await expect(autocompletePage.countryOptions).toHaveCount(0);
     });
 
 });

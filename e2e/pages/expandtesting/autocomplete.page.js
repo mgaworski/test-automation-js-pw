@@ -11,6 +11,8 @@ export class AutocompletePage extends BasePage {
     // locators
     get countryInput() { return this.page.locator('input#country'); };
     get submitButton() { return this.page.getByRole("button").getByText("Submit"); };
+    get countryOptions() { return this.page.locator("#countryautocomplete-list").locator("div"); };
+    get submitResultsText() { return this.page.locator('#result'); }; 
 
     // dynamic locators
     countryOption(country) { return this.page.locator(`xpath=//input[@value="${country}"]`); };
