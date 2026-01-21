@@ -5,10 +5,14 @@ const cfg = require('../../utilities/loadEnvHelper');
 
 test.describe("Expand testing #19 - Autocomplete", () => {
 
-    test("Verify autocomplete gradually filters values.", async ({ page }) => {
+    test.beforeEach(async ({ page }) => {
         const autocompletePage = new AutocompletePage(page, cfg);
         await autocompletePage.open();
         await expect(autocompletePage.countryInput).toBeVisible({ timeout: 15000 });
+    });
+
+    test("Verify autocomplete gradually filters values.", async ({ page }) => {
+        const autocompletePage = new AutocompletePage(page, cfg);
         await autocompletePage.type("Po");
         await expect(autocompletePage.countryOption("Poland")).toBeAttached();
         await expect(autocompletePage.countryOption("Portugal")).toBeAttached();
@@ -23,8 +27,6 @@ test.describe("Expand testing #19 - Autocomplete", () => {
 
     test("Verify autocomplete empty results.", async ({ page }) => {
         const autocompletePage = new AutocompletePage(page, cfg);
-        await autocompletePage.open();
-        await expect(autocompletePage.countryInput).toBeVisible({ timeout: 15000 });
         await autocompletePage.type("Po");
         await expect(autocompletePage.countryOption("Poland")).toBeAttached();
         await expect(autocompletePage.countryOption("Portugal")).toBeAttached();
