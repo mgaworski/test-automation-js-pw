@@ -13,7 +13,7 @@ import { defineConfig, devices } from '@playwright/test';
  * @see https://playwright.dev/docs/test-configuration
  */
 export default defineConfig({
-  testDir: './e2e',
+  testDir: 'e2e',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -39,7 +39,7 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome']
       },
-      testDir: 'e2e/ui-tests'
+      testDir: 'e2e/tests-ui'
     },
 
     {
@@ -47,7 +47,7 @@ export default defineConfig({
       use: {
         ...devices['Desktop Firefox']
       },
-      testDir: 'e2e/ui-tests'
+      testDir: 'e2e/tests-ui'
     },
 
     {
@@ -55,12 +55,12 @@ export default defineConfig({
       use: {
         ...devices['Desktop Safari']
       },
-      testDir: 'e2e/ui-tests'
+      testDir: 'e2e/tests-ui'
     },
 
     {
       name: 'api',
-      testDir: 'e2e/api-tests'
+      testDir: 'e2e/tests-api'
     },
   ],
 
