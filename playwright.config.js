@@ -39,6 +39,7 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome']
       },
+      testDir: 'e2e/ui-tests'
     },
 
     {
@@ -46,6 +47,7 @@ export default defineConfig({
       use: {
         ...devices['Desktop Firefox']
       },
+      testDir: 'e2e/ui-tests'
     },
 
     {
@@ -53,6 +55,12 @@ export default defineConfig({
       use: {
         ...devices['Desktop Safari']
       },
+      testDir: 'e2e/ui-tests'
+    },
+
+    {
+      name: 'api',
+      testDir: 'e2e/api-tests'
     },
   ],
 
