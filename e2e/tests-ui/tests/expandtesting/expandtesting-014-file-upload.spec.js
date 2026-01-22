@@ -1,10 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { FileUploaderPage } from '../../pages/expandtesting/file-uploader.page';
 
-import fs from 'fs';
-import path from 'path';
-import os from 'os';
-
 const cfg = require('../../../utilities/loadEnvHelper');
 
 test.describe("Expand testing #14 - File upload", () => {
