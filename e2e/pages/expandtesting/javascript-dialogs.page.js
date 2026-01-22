@@ -17,27 +17,26 @@ export class JavaScriptDialogsPage extends BasePage {
     async alert() {
         this.page.on('dialog', dialog => dialog.accept());
         await this.jsAlertButton.click();
-    }
+    };
 
     async confirmCancel() {
         this.page.on('dialog', dialog => dialog.dismiss());
         await this.jsConfirmButton.click();
-    }
+    };
 
     async confirmAccept() {
         this.page.on('dialog', dialog => dialog.accept());
         await this.jsConfirmButton.click();
-    }
+    };
 
     async promptCancel() {
         this.page.on('dialog', dialog => dialog.dismiss());
         await this.jsPromptButton.click();
-    }
+    };
 
     async promptEnter(prompt) {
         this.page.on('dialog', dialog => dialog.accept(prompt));
         await this.jsPromptButton.click();
-    }
-    
+    };
 
-}
+};
