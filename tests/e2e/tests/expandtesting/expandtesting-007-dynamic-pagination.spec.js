@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { DynamicPaginationTablePage } from '../../pages/expandtesting/dynamic-pagination-table.page';
 
-const cfg = require('../../utilities/loadEnvHelper');
-const { loadData } = require('../../utilities/loadDataHelper');
+const cfg = require('../../../utilities/loadEnvHelper');
+const { loadData } = require('../../../utilities/loadDataHelper');
 
 const students = loadData('students');
 

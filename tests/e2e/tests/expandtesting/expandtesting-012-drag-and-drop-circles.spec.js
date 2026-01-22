@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { DragAndDropCirclesPage } from '../../pages/expandtesting/drag-and-drop-circles.page';
 
-const cfg = require('../../utilities/loadEnvHelper');
+const cfg = require('../../../utilities/loadEnvHelper');
 
 test.describe("Expand testing #12 - drag and drop circles", () => {
 

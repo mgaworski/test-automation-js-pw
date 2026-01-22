@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { NotificationMessagePage } from '../../pages/expandtesting/notification-message.page';
 
-const cfg = require('../../utilities/loadEnvHelper');
+const cfg = require('../../../utilities/loadEnvHelper');
 
 test.describe("Expand testing #18 - Notifications", () => {
 

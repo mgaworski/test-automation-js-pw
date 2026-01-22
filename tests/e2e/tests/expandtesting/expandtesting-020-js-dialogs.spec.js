@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { JavaScriptDialogsPage } from '../../pages/expandtesting/javascript-dialogs.page';
 
-const cfg = require('../../utilities/loadEnvHelper');
+const cfg = require('../../../utilities/loadEnvHelper');
 
 test.describe("Expand testing #20 - JS Dialogs", () => {
 

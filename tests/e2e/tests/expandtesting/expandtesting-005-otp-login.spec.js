@@ -3,8 +3,8 @@ import { OTPLoginPage } from '../../pages/expandtesting/otp-login.page.js';
 import { OTPVerificationPage } from '../../pages/expandtesting/otp-verification.page.js';
 import { SecureAreaPage } from '../../pages/expandtesting/secure-area.page.js';
 
-const cfg = require('../../utilities/loadEnvHelper.js');
-const { loadData } = require('../../utilities/loadDataHelper.js');
+const cfg = require('../../../utilities/loadEnvHelper.js');
+const { loadData } = require('../../../utilities/loadDataHelper.js');
 const otp = loadData('otp');
 
 test.describe('Expand testing #5 - test OTP login', () => {

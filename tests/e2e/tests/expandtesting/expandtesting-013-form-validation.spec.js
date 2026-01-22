@@ -2,8 +2,8 @@ import { test, expect } from '@playwright/test';
 import { FormValidationPage } from '../../pages/expandtesting/form-validation.page';
 import { FormConfirmationPage } from '../../pages/expandtesting/form-confirmation.page';
 
-const cfg = require('../../utilities/loadEnvHelper');
-const { getDateYYYYMMDD } = require('../../utilities/timeDateHelper');
+const cfg = require('../../../utilities/loadEnvHelper');
+const { getDateYYYYMMDD } = require('../../../utilities/timeDateHelper');
 
 test.describe("Expand testing #13 - Form validation", () => {
 

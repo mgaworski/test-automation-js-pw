@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { SecureFileDownloaderPage } from '../../pages/expandtesting/secure-file-downloader.page';
 
-const cfg = require('../../utilities/loadEnvHelper');
+const cfg = require('../../../utilities/loadEnvHelper');
 
 test.describe("Expand testing #17 - Secure file download", () => {
 

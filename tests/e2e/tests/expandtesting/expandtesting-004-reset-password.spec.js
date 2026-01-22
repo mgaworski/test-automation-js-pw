@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 import { ForgotPasswordPage } from '../../pages/expandtesting/forgot-password.page.js';
 
-const cfg = require('../../utilities/loadEnvHelper.js');
-const { checkMailinator } = require('../../utilities/mailinatorHelper.js');
+const cfg = require('../../../utilities/loadEnvHelper.js');
+const { checkMailinator } = require('../../../utilities/mailinatorHelper.js');
 
 test.describe('Expand testing #4 - test password reset', () => {
 

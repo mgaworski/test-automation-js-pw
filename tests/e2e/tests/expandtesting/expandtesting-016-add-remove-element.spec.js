@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { AddRemoveElementsPage } from '../../pages/expandtesting/add-remove-elements.page';
 
-const cfg = require('../../utilities/loadEnvHelper');
+const cfg = require('../../../utilities/loadEnvHelper');
 
 test.describe("Expand testing #16  - Add/Remove elements", () => {
 

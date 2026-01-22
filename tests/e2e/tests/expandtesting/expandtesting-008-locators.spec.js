@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { LocatorsPage } from '../../pages/expandtesting/locators.page';
 
-const cfg = require('../../utilities/loadEnvHelper');
+const cfg = require('../../../utilities/loadEnvHelper');
 
 test.describe("Expand testing #8 - various ways of building a locator", () => {
 

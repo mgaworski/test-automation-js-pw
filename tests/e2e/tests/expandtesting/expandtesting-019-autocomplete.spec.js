@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { AutocompletePage } from '../../pages/expandtesting/autocomplete.page';
 
-const cfg = require('../../utilities/loadEnvHelper');
+const cfg = require('../../../utilities/loadEnvHelper');
 
 test.describe("Expand testing #19 - Autocomplete", () => {
 

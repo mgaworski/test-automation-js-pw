@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { DragAndDropPage } from '../../pages/expandtesting/drag-and-drop.page';
 
-const cfg = require('../../utilities/loadEnvHelper');
+const cfg = require('../../../utilities/loadEnvHelper');
 
 test.describe("Expand testing #11 - drag and drop", () => {
 

@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { DynamicTablePage } from '../../pages/expandtesting/dynamic-table.page';
 
-const cfg = require('../../utilities/loadEnvHelper');
+const cfg = require('../../../utilities/loadEnvHelper');
 
 test.describe("Expand testing #6 - test table with dynamic row and column order", () => {
 

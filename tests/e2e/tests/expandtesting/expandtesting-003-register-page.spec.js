@@ -2,8 +2,8 @@ import { test, expect } from '@playwright/test';
 import { RegisterPage } from '../../pages/expandtesting/register.page';
 import { LoginPage } from '../../pages/expandtesting/login.page';
 
-const cfg = require('../../utilities/loadEnvHelper');
-const { loadData } = require('../../utilities/loadDataHelper');
+const cfg = require('../../../utilities/loadEnvHelper');
+const { loadData } = require('../../../utilities/loadDataHelper');
 const users = loadData('users');
 
 

@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { RadioButtonsPage } from '../../pages/expandtesting/radio-buttons.page.js';
 
-const cfg = require('../../utilities/loadEnvHelper.js');
+const cfg = require('../../../utilities/loadEnvHelper.js');
 
 test.describe('Expand testing #10 - radio buttons', () => {
 

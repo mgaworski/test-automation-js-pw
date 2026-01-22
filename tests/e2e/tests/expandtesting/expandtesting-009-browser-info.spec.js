@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { MyBrowserInformationPage } from '../../pages/expandtesting/my-browser-information.page';
 
-const cfg = require('../../utilities/loadEnvHelper');
+const cfg = require('../../../utilities/loadEnvHelper');
 
 test.describe("Expand testing #9 - show/hide browser info", () => {
 
