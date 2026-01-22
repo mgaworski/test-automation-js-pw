@@ -13,10 +13,10 @@ export class ForgotPasswordPage extends BasePage {
     }
 
     // locators
-    get emailInput() { return this.page.locator("#email"); }
-    get retrievePasswordButton() { return this.page.getByRole("button").getByText("Retrieve password"); }
-    get invalidMailTextArea() { return this.page.getByText(this.invalidMailUsed); }
-    get validMailTextArea() { return this.page.getByText(this.validMailUsed); }
+    get emailInput() { return this.page.locator("#email"); };
+    get retrievePasswordButton() { return this.page.getByRole("button").getByText("Retrieve password"); };
+    get invalidMailTextArea() { return this.page.getByText(this.invalidMailUsed); };
+    get validMailTextArea() { return this.page.getByText(this.validMailUsed); };
 
     // methods
     async retrieve(email) {
