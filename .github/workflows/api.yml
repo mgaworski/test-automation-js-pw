@@ -1,4 +1,4 @@
-name: All tests on Chromium
+name: API Tests
 on:
   push:
     branches: [ main, master ]
