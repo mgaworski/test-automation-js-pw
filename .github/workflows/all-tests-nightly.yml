@@ -1,10 +1,8 @@
-name: E2E Tests
+name: Tests - Nightly
 on:
-  # push:
-  #   branches: [ main, master ]
-  # pull_request:
-  #   branches: [ main, master ]
   workflow_dispatch:
+  schedule:
+  - cron: "0 1 * * *"
 jobs:
   test:
     timeout-minutes: 60
@@ -19,7 +17,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test e2e
+      run: npx playwright test
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
