@@ -18,6 +18,7 @@
   "homepage": "https://github.com/mgaworski/test-automation-js-pw#readme",
   "devDependencies": {
     "@playwright/test": "^1.57.0",
-    "@types/node": "^25.0.8"
+    "@types/node": "^25.0.8",
+    "dotenv": "^17.2.3"
   }
 }
