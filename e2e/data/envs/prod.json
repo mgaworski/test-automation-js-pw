@@ -1,5 +1,5 @@
 {
     "envName" : "Prod",
     "appURL" : "https://practice.expandtesting.com/",
-    "apiURL" : "https://api.ipify.org/"
+    "ipifyURL" : "https://api.ipify.org/"
 }
