@@ -2,20 +2,20 @@ const path = require('path');
 const fs = require('fs');
 
 function loadData(name) {
-  const fullPath = path.join(__dirname, "..", "data", `${name}.json`);
-  if (!fs.existsSync(fullPath)) {
-    throw new Error(`Data file not found: ${fullPath}`);
+  const jsPath = path.join(__dirname, '..', 'data', `${name}.js`);
+  const jsonPath = path.join(__dirname, '..', 'data', `${name}.json`);
+
+  if (fs.existsSync(jsPath)) {
+    const mod = require(jsPath);
+    return typeof mod === 'function' ? mod() : mod;
   }
-  const raw = fs.readFileSync(fullPath, 'utf-8');
-  return JSON.parse(raw);
+
+  if (fs.existsSync(jsonPath)) {
+    const raw = fs.readFileSync(jsonPath, 'utf-8');
+    return JSON.parse(raw);
+  }
+
+  throw new Error(`Data file not found: ${jsPath} or ${jsonPath}`);
 }
 
 module.exports = { loadData };
-
-/*
-Used to load test data from data folder.
-Expects data files to be valid json encoded with UTF-8.
-
-const { loadData } = require('../utilities/loadData');
-const users = loadData('users');
-*/

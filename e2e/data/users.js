@@ -1,0 +1,22 @@
+module.exports = () =>  ({
+  validUser: {
+    name: "practice",
+    password: "SuperSecretPassword!"
+  },
+  invalidNameUser: {
+    name: "Gandalf",
+    password: "SuperSecretPassword!"
+  },
+  invalidPasswordUser: {
+    name: "practice",
+    password: "SayFriendAndEnter"
+  },
+  registerUser: {
+    name: "john",
+    password: "SayMyNameSayMyName!"
+  },
+  shortPasswordUser: {
+    name: "john",
+    password: "abc"
+  }
+});

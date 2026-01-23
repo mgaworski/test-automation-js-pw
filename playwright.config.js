@@ -1,5 +1,7 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+// loading env from file (secrets);
+import 'dotenv/config';
 
 /**
  * Read environment variables from file.
