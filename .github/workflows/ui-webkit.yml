@@ -1,4 +1,4 @@
-name: All tests on Webkit
+name: UI tests (Webkit)
 on:
   push:
     branches: [ main, master ]

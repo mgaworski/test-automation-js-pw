@@ -1,4 +1,4 @@
-name: All tests on Firefox
+name: UI tests (Firefox)
 on:
   push:
     branches: [ main, master ]

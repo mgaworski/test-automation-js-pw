@@ -1,4 +1,4 @@
-name: Tests - Nightly
+name: All tests (nightly)
 on:
   workflow_dispatch:
   schedule:
