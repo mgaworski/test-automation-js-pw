@@ -1,11 +1,11 @@
 module.exports = () =>  ({
   validUser: {
     name: "practice",
-    password: "SuperSecretPassword!"
+    password: process.env.SUPER_SECRET_PASSWORD
   },
   invalidNameUser: {
     name: "Gandalf",
-    password: "SuperSecretPassword!"
+    password: process.env.SUPER_SECRET_PASSWORD
   },
   invalidPasswordUser: {
     name: "practice",
