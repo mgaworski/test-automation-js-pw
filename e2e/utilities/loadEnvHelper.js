@@ -6,7 +6,7 @@ function loadEnvironment() {
   let environment = process.env.ENV;
   if (!environment) environment = "dev"
 
-  const fullPath = path.join(__dirname, "..", "data", "envs", `${environment}.json`);
+  const fullPath = path.join(__dirname, "..", "envs", `${environment}.json`);
   if (!fs.existsSync(fullPath)) {
     throw new Error(`Data file not found: ${fullPath}`);
   }
