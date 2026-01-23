@@ -1,9 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-process.env.ENV = "api";
 const cfg = require('../../utilities/loadEnvHelper');
 
 test('GET my ip', async ({ request }) => {
-    const res = await request.get(cfg.appURL);
+    const res = await request.get(cfg.apiURL);
     expect(res.ok()).toBeTruthy();
 });

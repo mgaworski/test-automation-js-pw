@@ -1,4 +1,5 @@
 {
     "envName" : "Developer (local)",
-    "appURL" : "https://practice.expandtesting.com/"
+    "appURL" : "https://practice.expandtesting.com/",
+    "apiURL" : "https://api.ipify.org/"
 }
