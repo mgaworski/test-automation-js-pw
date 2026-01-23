@@ -8,20 +8,20 @@ test.describe('Ipify API', () => {
     test('Verify Ipify returns public IP as plain text', async ({ request }) => {
         const client = new IpifyClient(request, cfg);
 
-        const res = await client.getIpText();
-        expect(res.ok()).toBeTruthy();
+        const response = await client.getIpText();
+        expect(response.ok()).toBeTruthy();
 
-        const ip = (await res.text()).trim();
+        const ip = (await response.text()).trim();
         expect(ip).toMatch(/^\d{1,3}(\.\d{1,3}){3}$|:/); // IPv4 or IPv6
     });
 
     test('Verify Ipify returns public IP as JSON', async ({ request }) => {
         const client = new IpifyClient(request, cfg);
 
-        const res = await client.getIpJson();
-        expect(res.ok()).toBeTruthy();
+        const response = await client.getIpJson();
+        expect(response.ok()).toBeTruthy();
 
-        const body = await res.json();
+        const body = await response.json();
         expect(body).toHaveProperty('ip');
         expect(body.ip).toMatch(/^\d{1,3}(\.\d{1,3}){3}$|:/);
     });
