@@ -2,7 +2,6 @@ import { test, expect } from '@playwright/test';
 import { WebInputsPage } from '../../pages/expandtesting/web-inputs.page';
 
 const cfg = require('../../../utilities/loadEnvHelper');
-const { loadData } = require('../../../utilities/loadDataHelper');
 const { getDateYYYYMMDD } = require('../../../utilities/timeDateHelper');
 
 test.describe('Expand testing #1 - test web inputs', () => {

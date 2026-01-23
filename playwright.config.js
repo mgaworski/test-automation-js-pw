@@ -28,12 +28,21 @@ export default defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
+
+    {
+      name: 'api',
+      testDir: 'e2e/tests-api/tests',
+      use: {
+        trace: 'off',
+      }
+    },
+
     {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome']
       },
-      testDir: 'e2e/tests-ui'
+      testDir: 'e2e/tests-ui/tests'
     },
 
     {
@@ -41,7 +50,7 @@ export default defineConfig({
       use: {
         ...devices['Desktop Firefox']
       },
-      testDir: 'e2e/tests-ui'
+      testDir: 'e2e/tests-ui/tests'
     },
 
     {
@@ -49,14 +58,8 @@ export default defineConfig({
       use: {
         ...devices['Desktop Safari']
       },
-      testDir: 'e2e/tests-ui'
-    },
-
-    {
-      name: 'api',
-      testDir: 'e2e/tests-api'
+      testDir: 'e2e/tests-ui/tests'
     },
   ],
 
 });
-
