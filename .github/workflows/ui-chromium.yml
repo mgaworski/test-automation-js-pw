@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       OTP_VALID_CODE: ${{ secrets.OTP_VALID_CODE }}
+      SUPER_SECRET_PASSWORD: ${{ secrets.SUPER_SECRET_PASSWORD }}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
