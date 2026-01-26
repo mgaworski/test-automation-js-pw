@@ -45,6 +45,31 @@ export class GorestClient extends BaseClient {
   };
 
   // Posts
+  async list_posts() {
+    return this.get("posts", {
+      headers: { Accept: `application/json` },
+    });
+  };
+
+  async get_post(id) {
+    return this.get(`posts/${id}?access-token=${this.token}`);
+  };
+
+  async create_post(post) {
+    return this.post(`posts?access-token=${this.token}`, {
+      data: post
+    });
+  };
+
+  async update_post(id, post) {
+    return this.put(`users/${id}?access-token=${this.token}`, {
+      data: post
+    });
+  };
+
+  async delete_post(id) {
+    return this.delete(`posts/${id}?access-token=${this.token}`);
+  };
 
   // Comments
 
