@@ -1,0 +1,53 @@
+import { BaseClient } from '../baseClient.js';
+
+export class GorestClient extends BaseClient {
+  constructor(request, cfg = {}, version = "V2", token = "") {
+    super(request, cfg);
+    switch (version) {
+      case "V0":
+        this.baseURL = `${cfg.gorestURL}public-api/`;
+        break;
+      case "V1":
+        this.baseURL = `${cfg.gorestURL}public/v1/`;
+        break;
+      case "V2":
+        this.baseURL = `${cfg.gorestURL}public/v2/`;
+        break;
+    };
+    this.token = token;
+  };
+
+  // Users
+  async list_users() {
+    return this.get("users", {
+      headers: { Accept: `application/json` },
+    });
+  };
+
+  async get_user(id) {
+    return this.get(`users/${id}?access-token=${this.token}`);
+  };
+
+  async create_user(user) {
+    return this.post(`users?access-token=${this.token}`, {
+      data: user
+    });
+  };
+
+  async update_user(id, user) {
+    return this.put(`users/${id}?access-token=${this.token}`, {
+      data: user
+    });
+  };
+
+  async delete_user(id) {
+    return this.delete(`users/${id}?access-token=${this.token}`);
+  };
+
+  // Posts
+
+  // Comments
+
+  // Todos
+
+};
