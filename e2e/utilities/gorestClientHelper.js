@@ -6,9 +6,23 @@ function compare_users(userA, userB) {
     return true;
 };
 
-function copy_user(user) {
-    let newUser = {...user};
-    return newUser
-}
+function compare_articles(articleA, articleB) {
+    if (articleA.title != articleB.title) return false;
+    if (articleA.body != articleB.body) return false;
+    if (articleA.user_id != articleB.user_id) return false;
+    return true;
+};
 
-module.exports = { compare_users, copy_user };
+function compare_comments(commentA, commentB) {
+    if (commentA.name != commentB.name) return false;
+    if (commentA.body != commentB.body) return false;
+    if (commentA.email != commentB.email) return false;
+    if (commentA.post_id != commentB.post_id) return false;
+    return true;
+};
+
+module.exports = { 
+  compare_users,
+  compare_articles,
+  compare_comments
+};

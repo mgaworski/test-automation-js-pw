@@ -32,13 +32,12 @@ test.describe.serial('GoRest API V1 CRUD: User', () => {
         expect(response.ok()).toBeTruthy();
         const body = await response.json();
         expect(compare_users(body.data, user)).toBeTruthy();
-        userId = body.data.id;
     });
 
     test('CRUD User - #3 - UPDATE previously created User (v1)', async ({ request }) => {
         const newName = faker.person.fullName({ sex: user.gender });
         expect (newName).not.toBe(user.name);
-        let modified = copy_user(user);
+        let modified = {...user};
         modified.name = newName;
         const gorestClient = new GorestClient(request, cfg, version, process.env.GOREST_TOKEN);
         const responseUpdate = await gorestClient.update_user(userId, modified);
