@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
 import { faker } from '@faker-js/faker';
-import { GorestClient } from '../../../../clients/gorest/gorestClient.js';
-import { compare_users, copy_user }  from '../../../../clients/gorest/gorestClient.js';
+import { GorestClient } from '../../../clients/gorest/gorestClient.js';
+import { compare_users, copy_user } from '../../../clients/gorest/gorestClient.js';
 
-const cfg = require('../../../../../utilities/loadEnvHelper.js');
+const cfg = require('../../../../utilities/loadEnvHelper.js');
 
-test.describe.serial('GoRest API V1 CRUD: User', () => {
+test.describe.serial('GoRest API V2 CRUD: User', () => {
 
-    const version = "V1";
+    const version = "V2";
 
     let userId = 0;
     let user = {}
@@ -17,24 +17,25 @@ test.describe.serial('GoRest API V1 CRUD: User', () => {
 
     user.status = "active";
 
-    test('CRUD User - #1 - CREATE new User (v1)', async ({ request }) => {
+    test('CRUD User - #1 - CREATE new User (v2)', async ({ request }) => {
         const gorestClient = new GorestClient(request, cfg, version, process.env.GOREST_TOKEN);
         const response = await gorestClient.create_user(user);
         expect(response.ok()).toBeTruthy();
         const body = await response.json();
-        expect(compare_users(body.data, user)).toBeTruthy();
-        userId = body.data.id;
+        expect(compare_users(body, user)).toBeTruthy();
+        userId = body.id;
     });
 
-    test('CRUD User - #2 - READ previously created User (v1)', async ({ request }) => {
+    test('CRUD User - #2 - READ previously created User (v2)', async ({ request }) => {
         const gorestClient = new GorestClient(request, cfg, version, process.env.GOREST_TOKEN);
         const response = await gorestClient.get_user(userId);
         expect(response.ok()).toBeTruthy();
         const body = await response.json();
-        expect(compare_users(body.data, user)).toBeTruthy();
+        expect(compare_users(body, user)).toBeTruthy();
+        userId = body.id;
     });
 
-    test('CRUD User - #3 - UPDATE previously created User (v1)', async ({ request }) => {
+    test('CRUD User - #3 - UPDATE previously created User (v2)', async ({ request }) => {
         const newName = faker.person.fullName({ sex: user.gender });
         expect (newName).not.toBe(user.name);
         let modified = {...user};
@@ -45,10 +46,10 @@ test.describe.serial('GoRest API V1 CRUD: User', () => {
         const responseGet = await gorestClient.get_user(userId);
         expect(responseGet.ok()).toBeTruthy();
         const body = await responseGet.json();
-        expect(compare_users(body.data, modified)).toBeTruthy();
+        expect(compare_users(body, modified)).toBeTruthy();
     });
 
-    test('CRUD User - #4 - DELETE previously created User (v1)', async ({ request }) => {
+    test('CRUD User - #4 - DELETE previously created User (v2)', async ({ request }) => {
         const gorestClient = new GorestClient(request, cfg, version, process.env.GOREST_TOKEN);
         const responseDelete = await gorestClient.delete_user(userId);
         expect(responseDelete.ok()).toBeTruthy();

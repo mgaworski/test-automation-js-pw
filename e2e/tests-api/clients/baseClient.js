@@ -15,6 +15,7 @@ export class BaseClient {
     return `${this.baseURL}${path}`;
   };
 
+  // RESTful
   async get(path, options = {}) {
     return this.request.get(this.url(path), {
       ...options,
