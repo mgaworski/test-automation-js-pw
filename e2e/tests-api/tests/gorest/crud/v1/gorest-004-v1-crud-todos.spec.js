@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { Faker, faker } from '@faker-js/faker';
-import { GorestClient } from '../../../clients/gorest/gorestClient.js';
-import { compare_todos }  from '../../../clients/gorest/gorestClient.js';
+import { faker } from '@faker-js/faker';
+import { GorestClient } from '../../../../clients/gorest/gorestClient.js';
+import { compare_todos }  from '../../../../clients/gorest/gorestClient.js';
 
-const cfg = require('../../../../utilities/loadEnvHelper.js');
+const cfg = require('../../../../../utilities/loadEnvHelper.js');
 
 test.describe.serial('GoRest API V1 CRUD: ToDos', () => {
 
