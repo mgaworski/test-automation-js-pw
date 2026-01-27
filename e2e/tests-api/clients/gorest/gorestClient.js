@@ -39,5 +39,10 @@ export class GorestClient extends BaseClient {
   async delete_comment(id) { return this.delete(`comments/${id}?access-token=${this.token}`); };
 
   // Todos
+  async list_todos() { return this.get("todos", { headers: { Accept: `application/json` }, }); };
+  async get_todo(id) { return this.get(`todos/${id}?access-token=${this.token}`); };
+  async create_todo(comment) { return this.post(`todos?access-token=${this.token}`, { data: comment }); };
+  async update_todo(id, comment) { return this.put(`todos/${id}?access-token=${this.token}`, { data: comment }); };
+  async delete_todo(id) { return this.delete(`todos/${id}?access-token=${this.token}`); };
 
 };

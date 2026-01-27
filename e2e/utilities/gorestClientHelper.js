@@ -21,8 +21,22 @@ function compare_comments(commentA, commentB) {
     return true;
 };
 
+function compare_todos(todoA, todoB) {
+    if (todoA.title != todoB.title) return false;
+    // if (todoA.due_on != todoB.due_on) return false;
+    if (!time_compare(todoA.due_on,todoB.due_on)) return false;
+    if (todoA.status != todoB.status) return false;
+    if (todoA.user_id != todoB.user_id) return false;
+    return true;
+};
+
+function time_compare(a, b) {
+  return new Date(a).getTime() === new Date(b).getTime();
+}
+
 module.exports = { 
   compare_users,
   compare_articles,
-  compare_comments
+  compare_comments,
+  compare_todos
 };

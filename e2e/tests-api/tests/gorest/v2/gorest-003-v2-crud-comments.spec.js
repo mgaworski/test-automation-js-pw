@@ -16,7 +16,6 @@ test.describe.serial('GoRest API V2 CRUD: Posts', () => {
     comment.email = faker.internet.email();
     comment.body = faker.lorem.paragraph();
 
-
     test('CRUD Comment - #0 - Preparation (v2) - getting existing post ID as parent', async ({ request }) => {
         const gorestClient = new GorestClient(request, cfg, version, process.env.GOREST_TOKEN);
         const response = await gorestClient.list_posts();

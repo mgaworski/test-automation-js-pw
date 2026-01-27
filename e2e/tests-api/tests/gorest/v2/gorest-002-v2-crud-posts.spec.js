@@ -24,7 +24,6 @@ test.describe.serial('GoRest API V2 CRUD: Posts', () => {
         await expect(users.length).toBeGreaterThan(0);
         const first_user = users[0];
         authorId = first_user.id;
-
     });
 
     test('CRUD Post - #1 - CREATE new Post (v2)', async ({ request }) => {
