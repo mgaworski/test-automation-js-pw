@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { faker } from '@faker-js/faker';
 import { GorestClient } from '../../../clients/gorest/gorestClient.js';
-import { compare_users, copy_user } from '../../../../utilities/gorestClientHelper.js';
+import { compare_users, copy_user } from '../../../clients/gorest/gorestClient.js';
 
 const cfg = require('../../../../utilities/loadEnvHelper.js');
 
