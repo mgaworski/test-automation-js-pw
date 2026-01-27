@@ -10,6 +10,7 @@ jobs:
     env:
       OTP_VALID_CODE: ${{ secrets.OTP_VALID_CODE }}
       SUPER_SECRET_PASSWORD: ${{ secrets.SUPER_SECRET_PASSWORD }}
+      GOREST_TOKEN: ${{ secrets.GOREST_TOKEN }}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
